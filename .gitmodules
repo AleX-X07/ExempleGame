@@ -1,0 +1,3 @@
+[submodule "EZ-Engine"]
+	path = EZ-Engine
+	url = https://github.com/AleX-X07/EZ-Engine
