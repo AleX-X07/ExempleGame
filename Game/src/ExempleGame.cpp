@@ -34,8 +34,8 @@ void ExempleGame::Init()
 		render->SetOrder(10);
 
 		// Movement
-		float speed = 200.0f;
-		auto movement = obj1->AddComponent<Movement>(speed);
+		//float speed = 200.0f;
+		//auto movement = obj1->AddComponent<Movement>(speed);
 
 		// BoxCollider
 		auto collider = obj1->AddComponent<ez::components::physics::BoxCollider>();
