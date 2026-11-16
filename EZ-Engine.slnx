@@ -1,0 +1,8 @@
+<Solution>
+  <Configurations>
+    <Platform Name="x64" />
+    <Platform Name="x86" />
+  </Configurations>
+  <Project Path="EZ-Engine/EZ-Engine.vcxproj" Id="fdfd736d-5a0c-4968-99c2-3f7e1198e582" />
+  <Project Path="Game/Game.vcxproj" Id="fc7c8d04-9c4b-4c42-8e80-925f85bd92bb" />
+</Solution>
