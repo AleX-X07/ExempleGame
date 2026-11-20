@@ -1,9 +1,13 @@
 #include "ExempleGame.h"
 
+#include <iostream>
+
 #include <ez/components/graphics/renderer.h>
 #include <ez/components/graphics/camera.h>
 
 #include <ez/components/physics/boxcollider.h>
+
+#include <maths/vecteur.h>
 
 ExempleGame::ExempleGame(sf::RenderWindow& window) : Game(window)
 {
@@ -30,12 +34,8 @@ void ExempleGame::Init()
 		// Creating Components
 		// Render
 		auto render = obj1->AddComponent<ez::components::graphics::Renderer>();
-		render->SetTexture("../EZ-Engine/assets-debug/red_block.png");
+		render->SetTexture("../Assets/Debug/red_block.png");
 		render->SetOrder(10);
-
-		// Movement
-		//float speed = 200.0f;
-		//auto movement = obj1->AddComponent<Movement>(speed);
 
 		// BoxCollider
 		auto collider = obj1->AddComponent<ez::components::physics::BoxCollider>();
@@ -68,7 +68,7 @@ void ExempleGame::Init()
 		// Creating Components
 		// Render
 		auto render = back->AddComponent<ez::components::graphics::Renderer>();
-		render->SetTexture("../EZ-Engine/assets-debug/background.png");
+		render->SetTexture("../Assets/Debug/map.png");
 		render->SetOrder(0);
 	}
 
@@ -83,7 +83,7 @@ void ExempleGame::Init()
 		// Creating Components
 		// Render
 		auto render = wall->AddComponent<ez::components::graphics::Renderer>();
-		render->SetTexture("../EZ-Engine/assets-debug/red_block.png");
+		render->SetTexture("../Assets/Debug/red_block.png");
 		render->SetOrder(1);
 
 		// BoxCollider
@@ -92,6 +92,17 @@ void ExempleGame::Init()
 		collider->SetSize(wall->GetSize());
 		collider->Debug();
 		collider->isStatic = true;
+	}
+
+	// Test math
+	maths::TVecteur<int, 4> test = { 5, 15, 5, 10 };
+	maths::TVecteur<int, 4> test2 = { 4, 14, 4, 9 };
+
+	maths::TVecteur<int,4> res = test + test2;
+
+	for (size_t i = 0; i < 4; i++)
+	{
+		std::cout << res[i] << std::endl;
 	}
 }
 
