@@ -95,14 +95,15 @@ void ExempleGame::Init()
 	}
 
 	// Test math
-	maths::TVecteur<int, 4> test = { 5, 15, 5, 10 };
-	maths::TVecteur<int, 4> test2 = { 4, 14, 4, 9 };
+	maths::TVecteur<float, 2> test = { 0,5 };
+	maths::TVecteur<int, 3> test2 = { 2,3,6 };
 
-	maths::TVecteur<int,4> res = test + test2;
+	std::cout << test.Normalize() << std::endl;
+	std::cout << test2.Norm() << std::endl;
 
-	for (size_t i = 0; i < 4; i++)
+	/*for (size_t i = 0; i < 4; i++)
 	{
 		std::cout << res[i] << std::endl;
-	}
+	}*/
 }
 
