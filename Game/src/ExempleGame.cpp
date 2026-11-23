@@ -13,6 +13,8 @@
 #include <maths/vecteur/vecteur2d.h>
 #include <maths/vecteur/vecteur3d.h>
 
+#include <maths/matrix/matrix.h>
+
 ExempleGame::ExempleGame(sf::RenderWindow& window) : Game(window)
 {
 }
@@ -102,13 +104,29 @@ void ExempleGame::Init()
 		collider->isStatic = true;
 	}
 
-	// Test math
-	maths::TVecteur2<float> test = { 1,1 };
-	maths::TVecteur2<float> test2 = { 2,4 };
+	//// Test math
+	// //Vecteur
+	//maths::TVecteur2<float> test = { 1,1 };
+	//maths::TVecteur2<float> test2 = { 2,4 };
 
-	maths::TVecteur3<float> test3 = { 3,-3,1 };
-	maths::TVecteur3<float> test4 = { 4,9,2 };
+	//maths::TVecteur3<float> test3 = { 3,-3,1 };
+	//maths::TVecteur3<float> test4 = { 4,9,2 };
 
-	std::cout << test*3 << std::endl;
+	// Matrix
+	maths::TMatrix<float, 3, 3> test = { 
+		{ 1,2,0 },
+		{ 0,1,3 },
+		{ 4,0,1 } 
+	};
+
+	maths::TMatrix<float, 3, 3> test2 = {
+		{ 2,0,1 },
+		{ 1,3,0 },
+		{ 0,1,2 }
+	};
+
+	auto res = test * test2;
+
+	std::cout << res;
 }
 
