@@ -49,7 +49,7 @@ void ExempleGame::Init()
 		collider->isStatic = false;
 
 		// Movement
-		auto movement = obj1->AddComponent<Movement>(100.f);
+		auto movement = obj1->AddComponent<Movement>(300.f);
 		movement->SetInput(sf::Keyboard::Key::Z, sf::Keyboard::Key::Q, sf::Keyboard::Key::S, sf::Keyboard::Key::D);
 	}
 
