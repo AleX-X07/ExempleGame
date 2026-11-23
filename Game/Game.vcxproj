@@ -158,9 +158,11 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="src\components\behaviour\movement.cpp" />
     <ClCompile Include="src\ExempleGame.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="include\components\behaviour\movement.h" />
     <ClInclude Include="include\ExempleGame.h" />
   </ItemGroup>
   <ItemGroup>

@@ -7,7 +7,11 @@
 
 #include <ez/components/physics/boxcollider.h>
 
-#include <maths/vecteur.h>
+#include <components/behaviour/movement.h>
+
+#include <maths/vecteur/vecteur.h>
+#include <maths/vecteur/vecteur2d.h>
+#include <maths/vecteur/vecteur3d.h>
 
 ExempleGame::ExempleGame(sf::RenderWindow& window) : Game(window)
 {
@@ -43,6 +47,10 @@ void ExempleGame::Init()
 		collider->SetSize(obj1->GetSize());
 		collider->Debug();
 		collider->isStatic = false;
+
+		// Movement
+		auto movement = obj1->AddComponent<Movement>(100.f);
+		movement->SetInput(sf::Keyboard::Key::Z, sf::Keyboard::Key::Q, sf::Keyboard::Key::S, sf::Keyboard::Key::D);
 	}
 
 	// Camera
@@ -95,15 +103,12 @@ void ExempleGame::Init()
 	}
 
 	// Test math
-	maths::TVecteur<float, 2> test = { 0,5 };
-	maths::TVecteur<int, 3> test2 = { 2,3,6 };
+	maths::TVecteur2<float> test = { 1,1 };
+	maths::TVecteur2<float> test2 = { 2,4 };
 
-	std::cout << test.Normalize() << std::endl;
-	std::cout << test2.Norm() << std::endl;
+	maths::TVecteur3<float> test3 = { 3,-3,1 };
+	maths::TVecteur3<float> test4 = { 4,9,2 };
 
-	/*for (size_t i = 0; i < 4; i++)
-	{
-		std::cout << res[i] << std::endl;
-	}*/
+	std::cout << test*3 << std::endl;
 }
 

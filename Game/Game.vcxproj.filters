@@ -13,6 +13,18 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Fichiers d%27en-tête\components">
+      <UniqueIdentifier>{ada63b27-26b0-4ff3-b70b-933e2a7550c0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête\components\behaviour">
+      <UniqueIdentifier>{8381d4c2-ee98-46d2-a118-51f50ede44c9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\components">
+      <UniqueIdentifier>{406f026c-658d-4c87-9916-cb3ffdcaf88c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\components\behaviour">
+      <UniqueIdentifier>{334d56f8-f5d7-4865-bd9d-84c8f609f520}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -21,10 +33,16 @@
     <ClCompile Include="src\ExempleGame.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
+    <ClCompile Include="src\components\behaviour\movement.cpp">
+      <Filter>Fichiers sources\components\behaviour</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\ExempleGame.h">
       <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="include\components\behaviour\movement.h">
+      <Filter>Fichiers d%27en-tête\components\behaviour</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
