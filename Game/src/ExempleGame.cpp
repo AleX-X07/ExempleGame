@@ -106,27 +106,17 @@ void ExempleGame::Init()
 
 	//// Test math
 	// //Vecteur
-	//maths::TVecteur2<float> test = { 1,1 };
+	maths::TVecteur<float,2> testvec = { 1,1 };
 	//maths::TVecteur2<float> test2 = { 2,4 };
 
 	//maths::TVecteur3<float> test3 = { 3,-3,1 };
 	//maths::TVecteur3<float> test4 = { 4,9,2 };
 
 	// Matrix
-	maths::TMatrix<float, 3, 3> test = { 
-		{ 1,2,0 },
-		{ 0,1,3 },
-		{ 4,0,1 } 
-	};
+	maths::TMatrix<float, 4, 4> test;
 
-	maths::TMatrix<float, 3, 3> test2 = {
-		{ 2,0,1 },
-		{ 1,3,0 },
-		{ 0,1,2 }
-	};
+	auto res = test.Det();
 
-	auto res = test * test2;
-
-	std::cout << res;
+	std::cout << test.Identity() << std::endl;
 }
 
