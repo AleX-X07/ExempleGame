@@ -36,10 +36,12 @@ void Movement::Update(float dt, systeme::Systeme& m_systeme)
 
 	float m_step = dt * m_speed;
 
+	sf::Vector2f normalized;
+
 	if (dir.x != 0 || dir.y != 0)
 	{
-		dir.normalized();
+		normalized = dir.normalized();
 	}
 
-	m_owner->GetTransform() += dir * m_step;
+	m_owner->GetTransform() += normalized * m_step;
 }

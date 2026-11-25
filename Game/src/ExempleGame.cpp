@@ -43,16 +43,16 @@ void ExempleGame::Init()
 		render->SetTexture("../Assets/Debug/red_block.png");
 		render->SetOrder(10);
 
+		// Movement
+		auto movement = obj1->AddComponent<Movement>(300.f);
+		movement->SetInput(sf::Keyboard::Key::Z, sf::Keyboard::Key::Q, sf::Keyboard::Key::S, sf::Keyboard::Key::D);
+
 		// BoxCollider
 		auto collider = obj1->AddComponent<ez::components::physics::BoxCollider>();
 		collider->SetListObject(m_scene->GetListObject());
 		collider->SetSize(obj1->GetSize());
 		collider->Debug();
 		collider->isStatic = false;
-
-		// Movement
-		auto movement = obj1->AddComponent<Movement>(300.f);
-		movement->SetInput(sf::Keyboard::Key::Z, sf::Keyboard::Key::Q, sf::Keyboard::Key::S, sf::Keyboard::Key::D);
 	}
 
 	// Camera
@@ -107,18 +107,18 @@ void ExempleGame::Init()
 	//// Test math
 	// //Vecteur
 	maths::TVecteur<float,2> testvec = { 1,1 };
-	//maths::TVecteur2<float> test2 = { 2,4 };
+	maths::TVecteur2<float> test2 = { 2,4 };
 
 	//maths::TVecteur3<float> test3 = { 3,-3,1 };
 	//maths::TVecteur3<float> test4 = { 4,9,2 };
 
 	// Matrix
-	maths::TMatrix<float, 2, 3> test = {
-		{ 1,2,3 },
-		{ 0,1,4 },
+	maths::TMatrix<float, 2,2> test = {
+		{1,2},
+		{2,4}
 	};
 
-	auto res = maths::TMatrix<float, 3, 3>::Identity();
+	auto res = test.Inverse();
 
 	std::cout << res << std::endl;
 }
