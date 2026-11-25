@@ -113,13 +113,12 @@ void ExempleGame::Init()
 	//maths::TVecteur3<float> test4 = { 4,9,2 };
 
 	// Matrix
-	maths::TMatrix<float, 3, 3> test = {
+	maths::TMatrix<float, 2, 3> test = {
 		{ 1,2,3 },
 		{ 0,1,4 },
-		{ 5,6,0 }
 	};
 
-	auto res = test.Det();
+	auto res = maths::TMatrix<float, 3, 3>::Identity();
 
 	std::cout << res << std::endl;
 }
