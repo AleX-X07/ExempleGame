@@ -2,6 +2,9 @@
 
 #include <iostream>
 
+#include <IMGUI/imgui.h>
+#include <IMGUI/imgui-SFML.h>
+
 #include <ez/components/graphics/renderer.h>
 #include <ez/components/graphics/camera.h>
 
@@ -9,11 +12,7 @@
 
 #include <components/behaviour/movement.h>
 
-#include <maths/vecteur/vecteur.h>
-#include <maths/vecteur/vecteur2d.h>
-#include <maths/vecteur/vecteur3d.h>
-
-#include <maths/matrix/matrix.h>
+#include <maths/maths.h>
 
 ExempleGame::ExempleGame(sf::RenderWindow& window) : Game(window)
 {
@@ -51,30 +50,32 @@ void ExempleGame::Init()
 		auto collider = obj1->AddComponent<ez::components::physics::BoxCollider>();
 		collider->SetListObject(m_scene->GetListObject());
 		collider->SetSize(obj1->GetSize());
-		collider->Debug();
+		//collider->Debug();
 		collider->isStatic = false;
 	}
 
-	// Camera
-	{
-		auto* camera = m_scene->AddObject("Camera");
-		auto cam = camera->AddComponent<ez::components::graphics::Camera>();
-		auto render = camera->AddComponent<ez::components::graphics::Renderer>();
+	//// Camera
+	//{
+	//	auto* camera = m_scene->AddObject("Camera");
+	//	auto cam = camera->AddComponent<ez::components::graphics::Camera>();
+	//	auto render = camera->AddComponent<ez::components::graphics::Renderer>();
 
-		sf::Vector2f size(GetWindow().getSize());
-		auto target = m_scene->GetObject("Obj");
+	//	sf::Vector2f size(GetWindow().getSize());
+	//	auto target = m_scene->GetObject("Obj");
 
-		cam->SetCamera(size);
-		cam->SetTarget(target);
-	}
+	//	cam->SetCamera(size);
+	//	cam->SetTarget(target);
+	//}
 
 	// Background
 	{
 		auto* back = m_scene->AddObject("Back");
 
 		auto winSize = sf::Vector2f(GetWindow().getSize());
-		back->GetSize() = winSize;
-		back->GetTransform() = winSize / 2.f;
+		maths::TVecteur2<float >mathsWinSize = { winSize.x,winSize.y };
+		back->GetSize() = mathsWinSize;
+		auto res = mathsWinSize / 2.f;
+		back->GetTransform() = { res[0], res[1] };
 
 		// Creating Components
 		// Render
@@ -88,8 +89,10 @@ void ExempleGame::Init()
 		auto* wall = m_scene->AddObject("Wall");
 
 		auto winSize = sf::Vector2f(GetWindow().getSize());
+		maths::TVecteur2<float>mathsWinSize = { winSize.x,winSize.y };
 		wall->GetSize() = { 100,100 };
-		wall->GetTransform() = winSize / 2.f;
+		auto res = mathsWinSize / 2.f;
+		wall->GetTransform() = { res[0], res[1] };
 
 		// Creating Components
 		// Render
@@ -101,7 +104,7 @@ void ExempleGame::Init()
 		auto collider = wall->AddComponent<ez::components::physics::BoxCollider>();
 		collider->SetListObject(m_scene->GetListObject());
 		collider->SetSize(wall->GetSize());
-		collider->Debug();
+		//collider->Debug();
 		collider->isStatic = true;
 	}
 

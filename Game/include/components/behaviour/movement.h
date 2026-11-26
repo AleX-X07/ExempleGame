@@ -2,6 +2,8 @@
 
 #include <ez/Component.h>
 
+#include <maths/maths.h>
+
 class Movement : public ez::Component
 {
 private:

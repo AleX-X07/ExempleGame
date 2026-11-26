@@ -16,7 +16,7 @@ void Movement::SetInput(const sf::Keyboard::Key& Up, const sf::Keyboard::Key& Le
 
 void Movement::Update(float dt, systeme::Systeme& m_systeme)
 {
-	sf::Vector2f dir = { 0,0 };
+	maths::TVecteur2<float> dir = { 0.0f,0.0f };
 	if (m_systeme.m_input.IsKeyHeld(m_Up))
 	{
 		dir.y -= 1.f;
@@ -36,11 +36,11 @@ void Movement::Update(float dt, systeme::Systeme& m_systeme)
 
 	float m_step = dt * m_speed;
 
-	sf::Vector2f normalized;
+	maths::TVecteur2<float> normalized;
 
 	if (dir.x != 0 || dir.y != 0)
 	{
-		normalized = dir.normalized();
+		normalized = dir.Normalize();
 	}
 
 	m_owner->GetTransform() += normalized * m_step;

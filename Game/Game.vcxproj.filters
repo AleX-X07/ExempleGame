@@ -33,7 +33,7 @@
     <ClCompile Include="src\ExempleGame.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
-    <ClCompile Include="src\components\behaviour\movement.cpp">
+    <ClCompile Include="src\components\behaviour\Movement.cpp">
       <Filter>Fichiers sources\components\behaviour</Filter>
     </ClCompile>
   </ItemGroup>
@@ -41,7 +41,7 @@
     <ClInclude Include="include\ExempleGame.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
-    <ClInclude Include="include\components\behaviour\movement.h">
+    <ClInclude Include="include\components\behaviour\Movement.h">
       <Filter>Fichiers d%27en-tête\components\behaviour</Filter>
     </ClInclude>
   </ItemGroup>
