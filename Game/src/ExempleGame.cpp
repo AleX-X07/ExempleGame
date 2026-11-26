@@ -59,6 +59,7 @@ void ExempleGame::Init()
 	{
 		auto* camera = m_scene->AddObject("Camera");
 		auto cam = camera->AddComponent<ez::components::graphics::Camera>();
+		auto render = camera->AddComponent<ez::components::graphics::Renderer>();
 
 		sf::Vector2f size(GetWindow().getSize());
 		auto target = m_scene->GetObject("Obj");
@@ -109,8 +110,7 @@ void ExempleGame::Init()
 	maths::TVecteur<float,2> testvec = { 1,1 };
 	maths::TVecteur2<float> test2 = { 4,2 };
 
-	maths::TVecteur3<float> vec1 = { 1,2,3 };
-	maths::TVecteur3<float> axe = { 1,0,0 };
+	maths::TVecteur3<float> vec1 = { 1,2,23 };
 
 	//maths::TVecteur3<float> test3 = { 3,-3,1 };
 	//maths::TVecteur3<float> test4 = { 4,9,2 };
@@ -121,10 +121,10 @@ void ExempleGame::Init()
 		{2,4}
 	};
 
-	std::cout << test2 << std::endl;
+	std::cout << vec1 << std::endl;
 
-	auto res = test2.Rotate(30.f);
+	maths::TVecteur3<float> axe = { 1,1,1 };
+	auto res = vec1.Rotate(30.f, axe);
 
 	std::cout << res << std::endl;
 }
-
