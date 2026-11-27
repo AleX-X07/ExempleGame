@@ -11,4 +11,6 @@ public:
 	virtual ~ExempleGame() override;
 
 	virtual void Init() override;
+	virtual void Update(float dt, systeme::Systeme& m_systeme) override;
+	virtual void Render(sf::RenderWindow& m_window) override;
 };

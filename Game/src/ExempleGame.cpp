@@ -20,6 +20,7 @@ ExempleGame::ExempleGame(sf::RenderWindow& window) : Game(window)
 
 ExempleGame::~ExempleGame()
 {
+	Game::~Game();
 }
 
 void ExempleGame::Init()
@@ -35,12 +36,12 @@ void ExempleGame::Init()
 		auto* obj1 = m_scene->AddObject("Obj");
 		obj1->GetTransform() = { 100,100 };
 		obj1->GetSize() = { 100,100 };
+		obj1->SetOrder(10);
 
 		// Creating Components
 		// Render
 		auto render = obj1->AddComponent<ez::components::graphics::Renderer>();
 		render->SetTexture("../Assets/Debug/red_block.png");
-		render->SetOrder(10);
 
 		// Movement
 		auto movement = obj1->AddComponent<Movement>(300.f);
@@ -54,22 +55,22 @@ void ExempleGame::Init()
 		collider->isStatic = false;
 	}
 
-	//// Camera
-	//{
-	//	auto* camera = m_scene->AddObject("Camera");
-	//	auto cam = camera->AddComponent<ez::components::graphics::Camera>();
-	//	auto render = camera->AddComponent<ez::components::graphics::Renderer>();
+	// Camera
+	{
+		auto* camera = m_scene->AddObject("Camera");
+		auto cam = camera->AddComponent<ez::components::graphics::Camera>();
 
-	//	sf::Vector2f size(GetWindow().getSize());
-	//	auto target = m_scene->GetObject("Obj");
+		sf::Vector2f size(GetWindow().getSize());
+		auto target = m_scene->GetObject("Obj");
 
-	//	cam->SetCamera(size);
-	//	cam->SetTarget(target);
-	//}
+		cam->SetCamera(size);
+		cam->SetTarget(target);
+	}
 
 	// Background
 	{
 		auto* back = m_scene->AddObject("Back");
+		back->SetOrder(0);
 
 		auto winSize = sf::Vector2f(GetWindow().getSize());
 		maths::TVecteur2<float >mathsWinSize = { winSize.x,winSize.y };
@@ -81,12 +82,13 @@ void ExempleGame::Init()
 		// Render
 		auto render = back->AddComponent<ez::components::graphics::Renderer>();
 		render->SetTexture("../Assets/Debug/map.png");
-		render->SetOrder(0);
 	}
 
 	// Wall
 	{
 		auto* wall = m_scene->AddObject("Wall");
+
+		wall->SetOrder(1);
 
 		auto winSize = sf::Vector2f(GetWindow().getSize());
 		maths::TVecteur2<float>mathsWinSize = { winSize.x,winSize.y };
@@ -98,7 +100,6 @@ void ExempleGame::Init()
 		// Render
 		auto render = wall->AddComponent<ez::components::graphics::Renderer>();
 		render->SetTexture("../Assets/Debug/red_block.png");
-		render->SetOrder(1);
 
 		// BoxCollider
 		auto collider = wall->AddComponent<ez::components::physics::BoxCollider>();
@@ -130,4 +131,17 @@ void ExempleGame::Init()
 	auto res = vec1.Rotate(30.f, axe);
 
 	std::cout << res << std::endl;
+}
+
+void ExempleGame::Update(float dt, systeme::Systeme& m_systeme)
+{
+	Game::Update(dt,m_systeme);
+}
+
+void ExempleGame::Render(sf::RenderWindow& m_window)
+{
+	Game::Render(m_window);
+	ImGui::Begin("Ma fenetre");
+	ImGui::Text("Hello ImGui !");
+	ImGui::End();
 }

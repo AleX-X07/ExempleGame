@@ -83,7 +83,7 @@
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalLibraryDirectories>$(SolutionDir)external/lib</AdditionalLibraryDirectories>
-      <AdditionalDependencies>sfml-main-d.lib;sfml-graphics-d.lib;sfml-system-d.lib;sfml-window-d.lib</AdditionalDependencies>
+      <AdditionalDependencies>$(CoreLibraryDependencies);sfml-graphics-d.lib;sfml-audio-d.lib;sfml-network-d.lib;sfml-system-d.lib;sfml-window-d.lib;opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <Manifest>
       <EnableSegmentHeap>true</EnableSegmentHeap>
@@ -104,7 +104,7 @@
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalLibraryDirectories>$(SolutionDir)external/lib</AdditionalLibraryDirectories>
-      <AdditionalDependencies>sfml-main-d.lib;sfml-graphics-d.lib;sfml-system-d.lib;sfml-window-d.lib</AdditionalDependencies>
+      <AdditionalDependencies>$(CoreLibraryDependencies);sfml-graphics-d.lib;sfml-audio-d.lib;sfml-network-d.lib;sfml-system-d.lib;sfml-window-d.lib;opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <Manifest>
       <EnableSegmentHeap>true</EnableSegmentHeap>
@@ -123,7 +123,7 @@
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalLibraryDirectories>$(SolutionDir)EZ-Engine/external/lib</AdditionalLibraryDirectories>
-      <AdditionalDependencies>sfml-main-d.lib;sfml-graphics-d.lib;sfml-system-d.lib;sfml-window-d.lib</AdditionalDependencies>
+      <AdditionalDependencies>$(CoreLibraryDependencies);sfml-graphics-d.lib;sfml-audio-d.lib;sfml-network-d.lib;sfml-system-d.lib;sfml-window-d.lib;opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <Manifest>
       <EnableSegmentHeap>true</EnableSegmentHeap>
@@ -147,7 +147,7 @@
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalLibraryDirectories>$(SolutionDir)EZ-Engine/external/lib</AdditionalLibraryDirectories>
-      <AdditionalDependencies>sfml-main-d.lib;sfml-graphics-d.lib;sfml-system-d.lib;sfml-window-d.lib</AdditionalDependencies>
+      <AdditionalDependencies>$(CoreLibraryDependencies);sfml-graphics-d.lib;sfml-audio-d.lib;sfml-network-d.lib;sfml-system-d.lib;sfml-window-d.lib;opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <Manifest>
       <EnableSegmentHeap>true</EnableSegmentHeap>
